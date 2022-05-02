@@ -18,10 +18,24 @@ source("functions/acquire_functions.R")
 
 # RUN --------------------------------------------------------------------------
 
-works_urls <- c("https://www.cervantesvirtual.com/portales/teatro_clasico_espanol/obra/la-bizarrias-de-elisa/",
-                "https://www.cervantesvirtual.com/portales/teatro_clasico_espanol/obra/el-burlador-de-sevilla-0/")
+# Add data sources to the `data/original/data_sources.csv` file.
+# The source URL only is testedd on works from the following index page:
+# https://www.cervantesvirtual.com/portales/teatro_clasico_espanol/canon_60_titulos/
+# This is done manually using spreadsheet software. The file must be
+# saved in .csv format.
 
+# Read data sources
+data_sources <- read_csv(file = "data/original/data_sources.csv")
+
+# Get the URLs for each data source
+works_urls <-
+  data_sources %>% # data sources
+  pull(work_url) # pull the work_url for each source
+
+# Acquire HTML for each of the works under the work_url and write to disk
 works_urls %>% # pass url(s) to acquire all associated works
   walk(get_works_html) # locate, read, and write each work to disk in html format
 
+# CLEANUP ----------------------------------------------------------------------
 
+rm(list = ls()) # remove workspace variables

@@ -1,0 +1,6 @@
+variable_name,name,description
+speaker,Speaker,Speaker associated with each dialogue
+dialogue,Dialogue,Dialogue for each speaker
+author,Author,Author of the work
+title,Title,Title of the work
+comedia,Comedia,Associated comedia of the work
