@@ -5,3 +5,4 @@
 _*
 *.Rproj
 .DS_Store
+*.code-workspace

@@ -25,7 +25,7 @@ source("functions/acquire_functions.R")
 # saved in .csv format.
 
 # Read data sources
-data_sources <- read_csv(file = "data/original/data_sources.csv")
+data_sources <- read_csv(file = "data/original/data_sources.csv") # read data sources
 
 # Get the URLs for each data source
 works_urls <-
@@ -34,7 +34,7 @@ works_urls <-
 
 # Acquire HTML for each of the works under the work_url and write to disk
 works_urls %>% # pass url(s) to acquire all associated works
-  walk(get_works_html) # locate, read, and write each work to disk in html format
+  walk(get_works_html) # acquire html for each work
 
 # CLEANUP ----------------------------------------------------------------------
 
